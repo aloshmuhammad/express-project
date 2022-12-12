@@ -1,0 +1,34 @@
+<Header>
+<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a href="#" class="navbar-brand">
+      <!-- Logo Image -->
+      <img src="https://bootstrapious.com/i/snippets/sn-nav-logo/logo.png" width="45" alt="" class="d-inline-block align-middle mr-2">
+      <!-- Logo Text -->
+      <span class="text-uppercase font-weight-bold">ADMIN PANEL</span>
+    </a>
+
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {{#if adminin}}
+        <li class="nav-item active"><a href="#" class="nav-link">ALL PRODUCTS<span class="sr-only"></span></a></li>
+        <li class="nav-item"><a href="/admin//view-users" class="nav-link">ALL USERS</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">ALL ORDERS</a></li>
+        <a href="/admin/logout" class="btn btn-primary">Logout</a>
+        {{else}}
+         <li class="nav-item active"><a href="#" class="nav-link"><span class="sr-only"></span></a></li>
+        <li class="nav-item"><a href="/admin//view-users" class="nav-link"></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"></a></li>
+        <a href="/admin" class="btn btn-primary">Login</a>
+        {{/if}}
+
+      </ul>
+    </div>
+  </div>
+</nav>
+</Header>
+
+
+

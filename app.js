@@ -5,8 +5,10 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var hbs = require("express-handlebars");
 var session = require("express-session");
+var db=require('./config/connection');
 
 var usersRouter = require("./routes/users");
+var adminRouter =require("./routes/admin");
 
 var app = express();
 
@@ -24,7 +26,7 @@ app.engine(
   })
 );
 
-app.use(session({ secret: "key",cookie:{maxAge:60000},saveUninitialized: false, resave: false}));
+app.use(session({ secret: "key",cookie:{maxAge:600000},saveUninitialized: false, resave: false}));
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -36,8 +38,19 @@ app.use(function(req, res, next) {
   res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
    next();
  });
+ db.connect((err)=>
+ {
+  if(err)
+  {
+    console.log(err);
+  }
+  else{
+    console.log("database connected");
+  }
+ })
   
 app.use("/", usersRouter);
+app.use("/admin",adminRouter);
 
 
 
